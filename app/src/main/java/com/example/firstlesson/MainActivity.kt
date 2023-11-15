@@ -12,7 +12,6 @@ class MainActivity : AppCompatActivity() {
 
     private var input = 0.0
     private var text1 = ""
-    private var selectedRadioButtonNumber = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,19 +28,9 @@ class MainActivity : AppCompatActivity() {
         buttonConvert.setOnClickListener {View ->
             val checkedRadioButtonId = choiceGroup.checkedRadioButtonId
 
-            when (checkedRadioButtonId){
-                -1 -> {
-                    textSystem.text = "Не выбрана конвертация"
-                }
-                else -> {
-                    textSystem.text = ""
-                     var selectedRadioButtonText = findViewById<RadioButton>(checkedRadioButtonId)
-                }
-            }
+            textSystem.text = if (checkedRadioButtonId == -1) "Не выбрана конвертация" else ""
 
-                //textViewEnter.text = checkedRadioButtonId.toString()
-
-            if ( checkedRadioButtonId == 2131230821 ){
+            if ( checkedRadioButtonId ==  R.id.button_mile ){
                 textViewEnter.text = "Мили"
                 textViewExit.text = "Километры"
                 text1 = editEnter.getText().toString()
@@ -51,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                 textExit.text = text1
             }
 
-            if ( checkedRadioButtonId == 2131230820 ){
+            if ( checkedRadioButtonId ==  R.id.button_knots ){
                 textViewEnter.text = "Узлы"
                 textViewExit.text = "Километры в час"
                 text1 = editEnter.getText().toString()
