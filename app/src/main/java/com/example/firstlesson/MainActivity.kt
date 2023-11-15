@@ -25,12 +25,12 @@ class MainActivity : AppCompatActivity() {
         val textViewEnter: TextView = findViewById(R.id.text_view_enter)
         val textViewExit: TextView = findViewById(R.id.text_view_exit)
 
-        buttonConvert.setOnClickListener {View ->
+        buttonConvert.setOnClickListener { view ->
             val checkedRadioButtonId = choiceGroup.checkedRadioButtonId
 
             textSystem.text = if (checkedRadioButtonId == -1) "Не выбрана конвертация" else ""
 
-            if ( checkedRadioButtonId ==  R.id.button_mile ){
+            if (checkedRadioButtonId == R.id.button_mile) {
                 textViewEnter.text = "Мили"
                 textViewExit.text = "Километры"
                 text1 = editEnter.getText().toString()
@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                 textExit.text = text1
             }
 
-            if ( checkedRadioButtonId ==  R.id.button_knots ){
+            if (checkedRadioButtonId == R.id.button_knots) {
                 textViewEnter.text = "Узлы"
                 textViewExit.text = "Километры в час"
                 text1 = editEnter.getText().toString()
@@ -49,7 +49,6 @@ class MainActivity : AppCompatActivity() {
                 text1 = input.toString()
                 textExit.text = text1
             }
-
 
 
         }
