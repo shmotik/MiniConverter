@@ -11,7 +11,6 @@ import android.widget.TextView
 class MainActivity : AppCompatActivity() {
 
     private var input = 0.0
-    private var text1 = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,26 +29,22 @@ class MainActivity : AppCompatActivity() {
 
             textSystem.text = if (checkedRadioButtonId == -1) "Не выбрана конвертация" else ""
 
-            if (checkedRadioButtonId == R.id.button_mile) {
-                textViewEnter.text = "Мили"
-                textViewExit.text = "Километры"
-                text1 = editEnter.getText().toString()
-                input = text1.toDouble()
-                input = input * 1.609344
-                text1 = input.toString()
-                textExit.text = text1
+            input = editEnter.getText().toString().toDouble()
+
+            when (checkedRadioButtonId){
+                R.id.button_mile -> {
+                    textViewEnter.text = "Мили"
+                    textViewExit.text = "Километры"
+                    input = input * 1.609344
+                }
+                R.id.button_knots -> {
+                    textViewEnter.text = "Узлы"
+                    textViewExit.text = "Километры в час"
+                    input = input * 1.852
+                }
             }
 
-            if (checkedRadioButtonId == R.id.button_knots) {
-                textViewEnter.text = "Узлы"
-                textViewExit.text = "Километры в час"
-                text1 = editEnter.getText().toString()
-                input = text1.toDouble()
-                input = input * 1.852
-                text1 = input.toString()
-                textExit.text = text1
-            }
-
+            textExit.text = input.toString()
 
         }
 
